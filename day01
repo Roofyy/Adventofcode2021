@@ -1,0 +1,30 @@
+# Write your solution here
+with open ("input.txt") as new_file:  #first part
+    my_list=[]
+    for line in new_file:
+        line=int(line)
+        my_list.append(line)
+    print(my_list)
+    count=0
+    for i in range(0, len(my_list)):
+        try:
+            if my_list[i]<my_list[i+1]:
+                count+=1
+        except IndexError:
+            pass
+    print(count)
+
+with open ("input.txt") as new_file: #second part
+    my_list=[]
+    for line in new_file:
+        line=int(line)
+        my_list.append(line)
+    print(my_list)
+    count=0
+    for i in range(0, len(my_list)):
+        try:
+            if my_list[i]+my_list[i+1]+my_list[i+2]<my_list[i+1]+my_list[i+2]+my_list[i+3]:
+                count+=1
+        except IndexError:
+            pass
+    print(count)
