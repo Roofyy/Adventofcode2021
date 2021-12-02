@@ -1,0 +1,35 @@
+def read_fruits(): #part1
+    with open("input (1).txt") as my_file:
+        total_hor=0
+        total_deep=0
+        for line in my_file:
+            line=line.replace("\n", "")
+            parts=line.split(" ")
+            key=parts[0]
+            value=parts[1]
+            if key=="forward":
+                total_hor+=int(value)
+            if key=="down":
+                total_deep+=int(value)
+            if key=="up":
+                total_deep-=int(value)
+    return (total_hor*total_deep)
+    
+  def read_fruits(): #part2
+    with open("input (1).txt") as my_file:
+        total_hor=0
+        total_deep=0
+        aim=0
+        for line in my_file:
+            line=line.replace("\n", "")
+            parts=line.split(" ")
+            key=parts[0]
+            value=parts[1]
+            if key=="down":
+                aim+=int(value)
+            if key=="up":
+                aim-=int(value)
+            if key=="forward":
+                total_hor+=int(value)
+                total_deep+=(aim*int(value))
+    return (total_hor*total_deep)
