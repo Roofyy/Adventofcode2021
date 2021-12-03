@@ -1,0 +1,50 @@
+def read_fruits(): #part1
+    with open("input (1).txt") as my_file:
+        my_list=[]
+        for line in my_file:
+            line=line.replace("\n", "")
+            my_list.append(line)
+        return my_list
+
+def most_frequent(List):
+    counter = 0
+    num = List[0]
+    for i in List:
+        curr_frequency = List.count(i)
+        if(curr_frequency> counter):
+            counter = curr_frequency
+            num = i
+    return num
+
+def iter(my_list: list):
+    last_list=""
+    try:
+        for i in range(len(my_list)):
+            list_for_it=[]
+            for j in range(1000):
+                list_for_it.append(my_list[j][i])
+            variable=most_frequent(list_for_it)
+            last_list+=variable
+    except IndexError:
+        return last_list
+
+def binToDeci(string:str):
+    dec_num = int(str(string), 2)
+    return dec_num
+
+def change_num(my_list:list):
+    cur_str=""
+    for i in my_list:
+        if int(i)==1:
+            cur_str+='0'
+        elif int(i)==0:
+            cur_str+='1'
+    return cur_str
+
+if __name__ == "__main__":
+    my_list=read_fruits()
+    new_list=iter(my_list)
+    gamma=binToDeci(new_list)
+    next_list=change_num(new_list)
+    esp=binToDeci(next_list)
+    print(gamma*esp)
